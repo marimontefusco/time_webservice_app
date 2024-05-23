@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TimeApp</string>
+    <string name="weather_info">13°</string>
+    <string name="country_city">Brasil - São Paulo</string>
+    <string name="info_view">Condições do Clima</string>
+    <string name="search_city">Buscar outra cidade</string>
+    <string name="search">Buscar</string>
 </resources>
