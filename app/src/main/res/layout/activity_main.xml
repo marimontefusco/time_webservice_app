@@ -2,49 +2,57 @@
 
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/conteinerPrincipal"
-        android:background="@color/Azul"
+        android:id="@+id/containerPrincipal"
+        android:background="@color/purple"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <!-- COMPONENTS -->
+
+        <!-- Switch Theme -->
         <Switch
             android:id="@+id/trocarTema"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/white"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="UseSwitchCompatOrMaterialXml"
             />
 
+        <!-- Temperature -->
         <TextView
             android:id="@+id/txtTemperatura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/_30_c"
-            android:textSize="50sp"
+            android:text="@string/weather_info"
+            android:textSize="70sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_margin="50dp"
+            android:layout_margin="20dp"
             app:layout_constraintTop_toBottomOf="@+id/trocarTema"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Local -->
         <TextView
             android:id="@+id/txtPaisCidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/brasil_rio_de_janeiro"
+            android:text="@string/country_city"
             android:textStyle="italic"
             android:textSize="20sp"
             android:gravity="center"
@@ -53,11 +61,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Dynamic img -->
         <ImageView
             android:id="@+id/imgClima"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/clouds"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/ic_cloud"
             android:layout_marginTop="40dp"
             app:layout_constraintTop_toBottomOf="@+id/txtTemperatura"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,27 +74,29 @@
             tools:ignore="ContentDescription"
             />
 
+        <!-- Container -->
         <View
             android:id="@+id/containerInfo"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/container_info_01"
+            android:layout_height="180dp"
+            android:background="@drawable/container_info"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@id/imgClima"
             app:layout_constraintEnd_toStartOf="@id/txtTituloInfo02"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Title -->
         <TextView
             android:id="@+id/txtTituloInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/info_view"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="italic"
             android:layout_marginHorizontal="60dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_blue"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="@id/containerInfo"
             app:layout_constraintStart_toStartOf="@id/containerInfo"
@@ -95,17 +106,17 @@
             android:id="@+id/txtTituloInfo01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clima \n Ceu Limpo \n\n Umidade \n 50"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="0dp"
+            android:text="Clima \nCéu Limpo \n\nUmidade 50"
+            android:textColor="@color/dark_blue"
+
             android:textSize="18sp"
-            android:textColor="@color/white"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="20dp"
-            app:layout_constraintTop_toBottomOf="@id/txtTituloInfo"
-            app:layout_constraintStart_toStartOf="@id/containerInfo"
-            app:layout_constraintEnd_toStartOf="@id/txtTituloInfo02"
             app:layout_constraintBottom_toBottomOf="@id/containerInfo"
+            app:layout_constraintEnd_toStartOf="@id/txtTituloInfo02"
+            app:layout_constraintStart_toStartOf="@id/containerInfo"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloInfo"
 
             />
 
@@ -113,24 +124,24 @@
             android:id="@+id/txtTituloInfo02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temp.Min \n 21 \n\n Temp. Max \n 25"
+            android:layout_marginTop="0dp"
+            android:text="Temperatura\nMin  21° \n \nMax 25°"
+            android:textColor="@color/dark_blue"
             android:textSize="18sp"
-            android:textColor="@color/white"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/txtTituloInfo"
-            app:layout_constraintStart_toEndOf="@id/txtTituloInfo01"
-            app:layout_constraintEnd_toEndOf="@id/containerInfo"
             app:layout_constraintBottom_toBottomOf="@id/containerInfo"
-            />
+            app:layout_constraintEnd_toEndOf="@id/containerInfo"
+            app:layout_constraintStart_toEndOf="@id/txtTituloInfo01"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloInfo" />
 
+        <!-- Input Search City -->
         <EditText
             android:id="@+id/editBuscarCidade"
             android:textColor="@color/white"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="@string/buscar_cidade"
+            android:hint="@string/search_city"
+            android:textColorHint="@color/white_transparent"
             android:padding="15dp"
             android:maxLines="1"
             android:gravity="center"
@@ -140,27 +151,30 @@
             app:layout_constraintEnd_toStartOf="@id/btBuscar"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <!-- Search Button -->
         <Button
             android:id="@+id/btBuscar"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/buscar"
+            android:text="@string/search"
             android:textSize="18sp"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_blue"
             android:textStyle="bold"
-            android:padding="15dp"
-            android:backgroundTint="@color/black"
+            android:padding="12dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/light_blue"
             app:layout_constraintTop_toBottomOf="@id/containerInfo"
             app:layout_constraintStart_toEndOf="@id/editBuscarCidade"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
+        <!--Progress Bar-->
         <ProgressBar
-            android:id="@+id/preogressBar"
+            android:id="@+id/progressBar"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:indeterminateTint="@color/white"
+            android:indeterminateTint="@color/light_blue"
             android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/editBuscarCidade"
             app:layout_constraintStart_toStartOf="parent"
